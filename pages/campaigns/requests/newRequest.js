@@ -28,6 +28,8 @@ const newRequest = (props) =>{
             setLoader(true);
             setErrorMessage('');
             const accounts = await web3.eth.getAccounts();
+
+            console.log(accounts);
             await campaign.methods.createRequest(Description,web3.utils.toWei(Amount,'ether'),Receipient).send({
                 from:accounts[0]
             });

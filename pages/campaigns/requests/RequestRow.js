@@ -36,7 +36,7 @@ const RequestRow = (props) => {
   const handleFinalise =async () => {
     console.log("Inside handleFinalise");
  
-    console.log(props.address);
+    console.log(props.request.receipient);
 
 
 
@@ -44,7 +44,8 @@ const RequestRow = (props) => {
         setFloader(true);
         const campaign = Campaign(props.address);
         const accounts = await web3.eth.getAccounts();
-  
+      
+        console.log(accounts);
         await campaign.methods.finalizeRequest(props.id).send({
           from: accounts[0],
         });
